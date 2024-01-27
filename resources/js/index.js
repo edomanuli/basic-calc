@@ -68,12 +68,27 @@ const calculate = () => {
             break;
 
         case '/':
-            result = val1 / val2;
+            if (val2 !== 0) {
+                result = val1 / val2;
+            } else {
+                result = NaN;
+            }
+            break;
+
+        case '^':
+            if (val1 >= 0 && val2 >= 0) {
+                result = Math.pow(val1, val2);
+            } else {
+                result = NaN;
+            }
             break;
 
         default:
             return;
     }
+    // console.log("result: " + result)
+
+    // result = result.toPrecision(3);
 
     screen.value = result;
     currValue = result.toString();
